@@ -47,7 +47,7 @@ class S(BaseHTTPRequestHandler):
 
             client_serial = civ.pop()
             client_baudrate = civ.pop()
-            client_adresse = civ[2]
+            client_adress = civ[2]
 
             try:
                 usb = serial.Serial(client_serial, client_baudrate, timeout=client_timeout)
@@ -65,7 +65,7 @@ class S(BaseHTTPRequestHandler):
                     response += '{:02x}'.format(value)
 
                 # Check if bad response    
-                if(response == "fefee0" + client_adresse + "fafd"):
+                if(response == "fefee0" + client_adress + "fafd"):
                     response = ''
 
                 if server_verbose > 0:
